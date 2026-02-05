@@ -114,7 +114,7 @@ export default function Login() {
             </form>
             
             <div className="bg-gray-50 p-4 border-t border-gray-100 text-center">
-                <p className="text-xs text-gray-600">नवीन वापरकर्ता? <span onClick={() => navigate("/signup")} className="text-[#8b0000] font-bold cursor-pointer hover:underline">येथे नोंदणी करा</span></p>
+                <p className="text-xs text-gray-600">नवीन वापरकर्ता? <span onClick={() => navigate("/")} className="text-[#8b0000] font-bold cursor-pointer hover:underline">येथे नोंदणी करा</span></p>
             </div>
           </div>
 

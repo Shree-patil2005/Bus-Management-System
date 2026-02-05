@@ -116,13 +116,13 @@ export default function ContactUs() {
           </div>
 
           {/* RIGHT SIDE: IMAGE - Responsive and Visible on Mobile */}
-          <div className="flex w-full md:w-2/5 min-h-[250px] md:min-h-full bg-gray-100 relative items-center justify-center overflow-hidden order-2">
+          <div className="flex w-full md:w-2/5 min-h-62.5 md:min-h-full bg-gray-100 relative items-center justify-center overflow-hidden order-2">
             <img 
               src={vit}
               alt="MSRTC Support" 
               className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#800000]/90 via-[#800000]/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-[#800000]/90 via-[#800000]/40 to-transparent"></div>
             
             <div className="relative z-10 text-center p-8 text-white">
               <h2 className="text-3xl font-black uppercase leading-none mb-2 tracking-tighter">Support</h2>

@@ -181,8 +181,8 @@ export default function Signup() {
         <div className="max-w-6xl mx-auto p-4 text-center">
           <p className="text-sm font-medium">© 2025 महाराष्ट्र राज्य मार्ग परिवहन महामंडळ. सर्व हक्क सुरक्षित.</p>
           <div className="flex justify-center gap-6 mt-4 opacity-60 text-[10px] uppercase tracking-widest">
-            <span className="hover:text-[#ff8c00] cursor-pointer">- गोपनीयता धोरण</span>
-            <span className="hover:text-[#ff8c00] cursor-pointer">- नियम व अटींची माहिती</span>
+            <p className="hover:text-[#ff8c00] cursor-pointer">- महाराष्ट्र राज्य मार्ग परिवहन महामंडळ</p>
+            <p className="hover:text-[#ff8c00] cursor-pointer">- लाल परी</p>
           </div>
         </div>
       </footer>

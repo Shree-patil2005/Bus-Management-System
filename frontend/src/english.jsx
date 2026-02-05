@@ -182,8 +182,8 @@ export default function Signup() {
         <div className="max-w-6xl mx-auto p-4 text-center">
           <p className="text-sm font-medium">© 2025 Maharashtra State Road Transport Corporation. All rights reserved.</p>
           <div className="flex justify-center gap-6 mt-4 opacity-60 text-[10px] uppercase tracking-widest">
-            <span className="hover:text-[#ff8c00] cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-[#ff8c00] cursor-pointer">Terms & Conditions</span>
+            <p className="hover:text-[#ff8c00] cursor-pointer">Maharashtra State Road Transport Corporation</p>
+            <p className="hover:text-[#ff8c00] cursor-pointer">Red Queen</p>
           </div>
         </div>
       </footer>
