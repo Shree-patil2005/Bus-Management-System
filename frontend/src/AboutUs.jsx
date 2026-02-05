@@ -12,7 +12,7 @@ export default function AboutUs() {
     <div className="flex flex-col min-h-screen bg-[#f4f4f4] font-sans">
       
       {/* HEADER - Consistent with Dashboard/Admin */}
-      <div className="bg-orange-400 p-4 md:p-6 shadow-md text-center">
+      <div className="bg-orange-400 p-4 md:p-4 shadow-md text-center">
         <h1 className="text-white font-black text-2xl md:text-3xl tracking-tighter uppercase">
           Maharashtra State Transport
         </h1>

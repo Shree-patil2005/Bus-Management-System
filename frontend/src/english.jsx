@@ -83,7 +83,7 @@ export default function Signup() {
           <ul className="flex text-[10px] md:text-xs font-bold uppercase tracking-wide">
             <button onClick={() => navigate("/english")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">Main Page</button>
             <button onClick={() => navigate("/AboutUs")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">About us</button>
-            
+            <button onClick={() => navigate("/Preview")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">Previews</button>
             <button onClick={() => navigate("/ContactUs")} className="px-4 md:px-6 py-3 hover:bg-[#003a63] cursor-pointer">Contact us</button>
           </ul>
         </div>

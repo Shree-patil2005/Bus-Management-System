@@ -9,6 +9,8 @@ import Feedback from "./Feedback";
 import ADashboard from "./admindashboard";
 import Abus from "./AboutUs";
 import Contact from "./ContactUs";
+import Feed from "./Feedback";
+import Preview from "./Preview";
 function App() {
    
  return ( 
@@ -23,5 +25,7 @@ function App() {
  <Route path="/admindashboard" element={<ADashboard />} />
  <Route path="/AboutUs" element={<Abus />} />
  <Route path="/ContactUs" element={<Contact />} />
+ <Route path="/Feedback" element={<Feed />} />
+ <Route path="/preview" element={<Preview />} />
 </Routes> ); }
  export default App;

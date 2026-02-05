@@ -38,7 +38,7 @@ export default function Dashboard() {
     <div className="flex flex-col min-h-screen bg-[#f4f4f4] font-sans">
       
       {/* HEADER */}
-      <div className="bg-orange-500 p-4 shadow-md text-center">
+      <div className="bg-orange-400 p-4 shadow-md text-center">
         <h1 className="text-white font-black text-xl md:text-2xl tracking-tighter uppercase">
           Maharashtra State Transport
         </h1>
@@ -66,6 +66,13 @@ export default function Dashboard() {
               className="shrink-0 w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-bold transition-all text-sm border border-transparent hover:border-gray-200"
             >
               🚌 View Busses
+            </button>
+
+            <button
+              onClick={() => navigate("/Preview")}
+              className="shrink-0 w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-bold transition-all text-sm border border-transparent hover:border-gray-200"
+            >
+              🙋🏼‍♀️Previews
             </button>
 
             <button
@@ -134,13 +141,13 @@ export default function Dashboard() {
             </div>
 
             {/* RIGHT SIDE: IMAGE (Now visible on mobile too) */}
-            <div className="flex w-full md:w-2/5 min-h-[250px] md:min-h-full bg-gray-100 relative items-center justify-center overflow-hidden order-2 md:order-2">
+            <div className="flex w-full md:w-2/5 min-h-62.5 md:min-h-full bg-gray-100 relative items-center justify-center overflow-hidden order-2 md:order-2">
               <img 
                 src={vit}
                 alt="MSRTC Bus" 
                 className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#800000]/80 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-[#800000]/80 via-transparent to-transparent"></div>
               <div className="relative z-10 text-center p-6 text-white">
                 <p className="text-2xl md:text-3xl font-black uppercase leading-none mb-2">Safe & Reliable</p>
                 <p className="text-xs md:text-sm font-medium opacity-80 italic">"जनसामान्यांसाठी.. रस्ता तिथे एस.टी..."</p>

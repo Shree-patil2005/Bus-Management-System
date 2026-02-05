@@ -37,7 +37,7 @@ export default function ContactUs() {
     <div className="flex flex-col min-h-screen bg-[#f4f4f4] font-sans">
       
       {/* HEADER - With Logo on Left */}
-      <div className="bg-orange-400 p-4 md:p-6 shadow-md relative flex items-center justify-center">
+      <div className="bg-orange-400 p-4 md:p-4 shadow-md relative flex items-center justify-center">
         
 
         <div className="text-center">

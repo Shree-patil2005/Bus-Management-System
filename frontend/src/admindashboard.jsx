@@ -36,7 +36,7 @@ export default function AdminDashboard() {
     <div className="flex flex-col min-h-screen bg-[#f4f4f4] font-sans">
       
       {/* HEADER - Consistent with Landing & Dashboard */}
-      <div className="bg-orange-500 p-4 shadow-md text-center">
+      <div className="bg-orange-400 p-4 shadow-md text-center">
         <h1 className="text-white font-black text-xl md:text-2xl tracking-tighter uppercase">
           Maharashtra State Transport
         </h1>

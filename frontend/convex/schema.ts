@@ -46,6 +46,16 @@ export default defineSchema({
     address: v.string(),
     issue: v.string(),
     createdAt: v.number(),
+
+  }),
+
+  feedbacks: defineTable({
+    name: v.string(),
+    phone: v.string(),
+    email: v.string(),
+    address: v.string(),
+    feedback: v.string(),
+    createdAt: v.number(),
   }),
 });
 
