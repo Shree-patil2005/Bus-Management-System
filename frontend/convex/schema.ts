@@ -38,5 +38,14 @@ export default defineSchema({
     people: v.number(),
     createdAt: v.number(),
   }),
+
+  contact: defineTable({
+    name: v.string(),
+    email: v.string(),
+    phone: v.string(),
+    address: v.string(),
+    issue: v.string(),
+    createdAt: v.number(),
+  }),
 });
 

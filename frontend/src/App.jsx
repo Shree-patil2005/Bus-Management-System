@@ -7,6 +7,8 @@ import AdminBus from "./adminbus";
 import SearchBus from "./searchbus";
 import Feedback from "./Feedback";
 import ADashboard from "./admindashboard";
+import Abus from "./AboutUs";
+import Contact from "./ContactUs";
 function App() {
    
  return ( 
@@ -19,5 +21,7 @@ function App() {
 <Route path="/searchbus" element={<SearchBus />} />
  <Route path="/feedback" element={<Feedback />} />
  <Route path="/admindashboard" element={<ADashboard />} />
+ <Route path="/AboutUs" element={<Abus />} />
+ <Route path="/ContactUs" element={<Contact />} />
 </Routes> ); }
  export default App;

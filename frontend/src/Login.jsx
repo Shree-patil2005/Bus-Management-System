@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 // Importing logos and bus image
 import busLogo from "./assets/bus.png";
 import CM from "./assets/CM.jpeg";
-import AC from "./assets/AC.jpg"; // Importing a bus image for the right side
+import AC from "./assets/AC.jpg"; 
 
 export default function Login() {
   const login = useAction(api.users.login);
@@ -51,18 +51,18 @@ export default function Login() {
         <div className="max-w-6xl mx-auto flex overflow-x-auto whitespace-nowrap scrollbar-hide">
           <ul className="flex text-[10px] md:text-xs font-bold uppercase tracking-wide">
             <li onClick={() => navigate("/")} className="px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">मुख्य पान</li>
-            <li className="px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">आमच्या विषयी</li>
-            <li className="px-6 py-3 hover:bg-[#003a63] cursor-pointer">संपर्क करा</li>
+            <li className="px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer text-center">आमच्या विषयी</li>
+            <li className="px-6 py-3 hover:bg-[#003a63] cursor-pointer text-center">संपर्क करा</li>
           </ul>
         </div>
       </nav>
 
-      {/* 4. MAIN CONTENT AREA (Grid with Form Left and Image Right) */}
+      {/* 4. MAIN CONTENT AREA (Responsive Grid) */}
       <main className="grow flex items-center justify-center p-4 md:p-10 bg-linear-to-b from-gray-50 to-gray-200">
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           
           {/* LEFT SIDE: LOGIN FORM */}
-          <div className="w-full max-w-md mx-auto bg-white shadow-2xl border border-gray-200 rounded-lg overflow-hidden">
+          <div className="w-full max-w-md mx-auto bg-white shadow-2xl border border-gray-200 rounded-lg overflow-hidden flex flex-col justify-center">
             <div className="bg-[#8b0000] p-4 flex items-center gap-3">
               <div className="bg-white rounded-lg p-1.5 shadow-inner">
                 <svg className="w-6 h-6 text-[#8b0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,21 +114,21 @@ export default function Login() {
             </form>
             
             <div className="bg-gray-50 p-4 border-t border-gray-100 text-center">
-               <p className="text-xs text-gray-600">नवीन वापरकर्ता? <span onClick={() => navigate("/")} className="text-[#8b0000] font-bold cursor-pointer hover:underline">येथे नोंदणी करा</span></p>
+                <p className="text-xs text-gray-600">नवीन वापरकर्ता? <span onClick={() => navigate("/signup")} className="text-[#8b0000] font-bold cursor-pointer hover:underline">येथे नोंदणी करा</span></p>
             </div>
           </div>
 
-          {/* RIGHT SIDE: BUS IMAGE */}
-          <div className="hidden md:block">
-            <div className="bg-white p-4 rounded-lg shadow-xl border border-gray-200">
+          {/* RIGHT SIDE: BUS IMAGE (Now visible on Mobile) */}
+          <div className="w-full flex items-center justify-center">
+            <div className="bg-white p-3 md:p-4 rounded-lg shadow-xl border border-gray-200 w-full">
                <img 
-                 src={AC} 
-                 alt="MSRTC Shivshahi Bus" 
-                 className="rounded-lg w-full h-auto object-cover"
+                  src={AC} 
+                  alt="MSRTC Shivshahi Bus" 
+                  className="rounded-lg w-full h-48 md:h-auto object-cover"
                />
                <div className="mt-4 text-center">
-                 <h2 className="text-[#8b0000] font-extrabold text-2xl">शिवशाही: अभिमानाची एस.टी.</h2>
-                 <p className="text-gray-600 mt-2 italic font-medium">"प्रवाशांच्या सेवेसाठी, सदैव तत्पर"</p>
+                  <h2 className="text-[#8b0000] font-extrabold text-xl md:text-2xl">शिवशाही: अभिमानाची एस.टी.</h2>
+                  <p className="text-gray-600 mt-1 md:mt-2 italic font-medium text-xs md:text-sm">"प्रवाशांच्या सेवेसाठी, सदैव तत्पर"</p>
                </div>
             </div>
           </div>

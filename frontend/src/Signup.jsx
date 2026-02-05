@@ -80,10 +80,10 @@ export default function Signup() {
       <nav className="bg-[#004a7c] text-white shadow-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto flex overflow-x-auto whitespace-nowrap scrollbar-hide">
           <ul className="flex text-[10px] md:text-xs font-bold uppercase tracking-wide">
-            <li className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">मुख्य पान</li>
-            <li className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">आमच्या विषयी</li>
-            <li className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">निविदा</li>
-            <li className="px-4 md:px-6 py-3 hover:bg-[#003a63] cursor-pointer">संपर्क करा</li>
+            <button onClick={() => navigate("/")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">मुख्य पान</button>
+            <button onClick={() => navigate("/AboutUS")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">आमच्या विषयी</button>
+           
+            <button onClick={() => navigate("/ContactUs")} className="px-4 md:px-6 py-3 hover:bg-[#003a63] cursor-pointer">संपर्क करा</button>
           </ul>
         </div>
       </nav>
