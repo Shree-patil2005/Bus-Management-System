@@ -11,6 +11,7 @@ import Abus from "./AboutUs";
 import Contact from "./ContactUs";
 import Feed from "./Feedback";
 import Preview from "./Preview";
+import Payment from "./Payment";
 function App() {
    
  return ( 
@@ -27,5 +28,6 @@ function App() {
  <Route path="/ContactUs" element={<Contact />} />
  <Route path="/Feedback" element={<Feed />} />
  <Route path="/preview" element={<Preview />} />
+ <Route path="/payment" element={<Payment />} />
 </Routes> ); }
  export default App;

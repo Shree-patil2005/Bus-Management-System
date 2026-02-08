@@ -57,5 +57,15 @@ export default defineSchema({
     feedback: v.string(),
     createdAt: v.number(),
   }),
+
+  payments: defineTable({
+    name: v.string(),
+    email: v.string(),
+    phone: v.string(),
+    amount: v.number(),
+    paymentMethod: v.string(), // GPay QR
+    status: v.string(),        // Paid
+    createdAt: v.number(),
+  }),
 });
 

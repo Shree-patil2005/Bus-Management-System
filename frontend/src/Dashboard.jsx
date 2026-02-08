@@ -50,8 +50,8 @@ export default function Dashboard() {
       <div className="flex flex-1 flex-col md:flex-row">
         
         {/* SIDEBAR */}
-        <div className="w-full md:w-64 bg-white border-r border-gray-200 p-6 flex flex-col gap-6 shadow-sm">
-          <h2 className="text-[#800000] font-black text-xs uppercase tracking-widest border-b pb-2">Menu</h2>
+        <div className="w-full md:w-64 bg-white border-r border-gray-200 p-6 flex flex-col gap-10 shadow-sm">
+          <h2 className="text-[#800000] font-black text-lg uppercase tracking-widest border-b pb-2">Menu</h2>
           
           <nav className="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible pb-2">
             <button
@@ -73,6 +73,13 @@ export default function Dashboard() {
               className="shrink-0 w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-bold transition-all text-sm border border-transparent hover:border-gray-200"
             >
               🙋🏼‍♀️Previews
+            </button>
+
+            <button
+              onClick={() => navigate("/Payment")}
+              className="shrink-0 w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-bold transition-all text-sm border border-transparent hover:border-gray-200"
+            >
+              💵Payment
             </button>
 
             <button
@@ -150,7 +157,7 @@ export default function Dashboard() {
               <div className="absolute inset-0 bg-linear-to-t from-[#800000]/80 via-transparent to-transparent"></div>
               <div className="relative z-10 text-center p-6 text-white">
                 <p className="text-2xl md:text-3xl font-black uppercase leading-none mb-2">Safe & Reliable</p>
-                <p className="text-xs md:text-sm font-medium opacity-80 italic">"जनसामान्यांसाठी.. रस्ता तिथे एस.टी..."</p>
+                <p className="text-lg md:text-sm font-medium opacity-80 italic">"जनसामान्यांसाठी.. रस्ता तिथे एस.टी..."</p>
               </div>
             </div>
 
