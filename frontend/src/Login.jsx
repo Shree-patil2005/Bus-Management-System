@@ -52,6 +52,7 @@ export default function Login() {
           <ul className="flex text-[10px] md:text-xs font-bold uppercase tracking-wide">
             <button onClick={() => navigate("/")} className="px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">मुख्य पान</button>
             <button onClick={() => navigate("/AboutUS")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">आमच्या विषयी</button>
+            <button onClick={() => navigate("/Preview")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">आढावा</button>
             <button onClick={() => navigate("/ContactUs")} className="px-4 md:px-6 py-3 hover:bg-[#003a63] cursor-pointer">संपर्क करा</button>
           </ul>
         </div>
@@ -79,8 +80,8 @@ export default function Login() {
                   <input
                     required
                     type="email"
-                    className="w-full border border-gray-300 p-3 pl-10 rounded text-sm focus:ring-2 focus:ring-[#ff8c00]/20 focus:border-[#ff8c00] outline-none transition-all"
-                    placeholder="example@mail.com"
+                    className="w-full border border-gray-300 p-3 pl-10 rounded text-sm focus:ring-2 focus:ring-[#ff8c00]/20 focus:border-[#ff8c00] outline-none invalid:border-red-500 transition-all"
+                    placeholder="example@gmail.com"
                     onChange={e => setForm({ ...form, email: e.target.value })}
                   />
                   <span className="absolute left-3 top-3 text-gray-400">
@@ -95,7 +96,7 @@ export default function Login() {
                   <input
                     required
                     type="password"
-                    className="w-full border border-gray-300 p-3 pl-10 rounded text-sm focus:ring-2 focus:ring-[#ff8c00]/20 focus:border-[#ff8c00] outline-none transition-all"
+                    className="w-full border border-gray-300 p-3 pl-10 rounded text-sm focus:ring-2 focus:ring-[#ff8c00]/20 focus:border-[#ff8c00] outline-none invalid:border-red-500 transition-all"
                     placeholder="••••••••"
                     onChange={e => setForm({ ...form, password: e.target.value })}
                   />

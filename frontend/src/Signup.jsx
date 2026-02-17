@@ -105,34 +105,52 @@ export default function Signup() {
 
             <form onSubmit={handleSubmit} className="p-5 md:p-6 space-y-4 md:space-y-5">
               <div>
-                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">पहिले नाव</label>
-                <input
-                  required
-                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none"
-                  placeholder="उदा. विनोद पाटील"
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">ईमेल</label>
-                <input
-                  required
-                  type="email"
-                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none"
-                  placeholder="example@mail.com"
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">पासवर्ड</label>
-                <input
-                  required
-                  type="password"
-                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none"
-                  placeholder="••••••••"
-                  onChange={(e) => setForm({ ...form, password: e.target.value })}
-                />
-              </div>
+  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">पहिले नाव</label>
+  <input
+    required
+    type="text"
+    /* Pattern: Only allows letters and spaces, minimum 2 characters */
+    pattern="^[A-Za-z\u0900-\u097F\s]{2,}$"
+    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+    placeholder="उदा. विनोद पाटील"
+    onChange={(e) => setForm({ ...form, name: e.target.value })}
+  />
+</div>
+
+<div>
+  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">ईमेल</label>
+  <input
+    required
+    type="email"
+    /* Standard email type handles the @ check automatically */
+    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+    placeholder="example@gmail.com"
+    onChange={(e) => setForm({ ...form, email: e.target.value })}
+  />
+</div>
+
+<div>
+  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">पासवर्ड</label>
+  <input
+    required
+    type="password"
+    /* Pattern breakdown:
+       (?=.*\d) : at least one number
+       (?=.*[a-z]) : at least one lowercase letter
+       (?=.*[A-Z]) : at least one uppercase letter
+       (?=.*[\W]) : at least one special character
+       .{8,} : minimum 8 characters
+    */
+    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}"
+    title="किमान ८ अक्षरे, ज्यामध्ये एक मोठे अक्षर (A), एक लहान अक्षर (a), एक अंक (0-9) आणि एक विशेष चिन्ह (@#$%) असावे."
+    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+    placeholder="••••••••"
+    onChange={(e) => setForm({ ...form, password: e.target.value })}
+  />
+  <p className="text-[14px] text-gray-400 mt-1">
+    किमान ८ अक्षरे (A, a, 123, #)
+  </p>
+</div>
 
               <button 
                 type="submit"

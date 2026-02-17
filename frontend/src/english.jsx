@@ -106,34 +106,47 @@ export default function Signup() {
 
             <form onSubmit={handleSubmit} className="p-5 md:p-6 space-y-4 md:space-y-5">
               <div>
-                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Full Name</label>
-                <input
-                  required
-                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none"
-                  placeholder="example:- vinod patil"
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Email Address</label>
-                <input
-                  required
-                  type="email"
-                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none"
-                  placeholder="example@mail.com"
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Password</label>
-                <input
-                  required
-                  type="password"
-                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none"
-                  placeholder="••••••••"
-                  onChange={(e) => setForm({ ...form, password: e.target.value })}
-                />
-              </div>
+  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Full Name</label>
+  <input
+    required
+    type="text"
+    /* Forces at least two words (First Last) and only letters */
+    pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
+    title="Please enter your full name (First and Last name)"
+    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+    placeholder="example:- vinod patil"
+    onChange={(e) => setForm({ ...form, name: e.target.value })}
+  />
+</div>
+
+<div>
+  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Email Address</label>
+  <input
+    required
+    type="email"
+    /* Browser naturally checks for @ and domain with type="email" */
+    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+    placeholder="example@gmail.com"
+    onChange={(e) => setForm({ ...form, email: e.target.value })}
+  />
+</div>
+
+<div>
+  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Password</label>
+  <input
+    required
+    type="password"
+    /* Logic: Min 8 chars, 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Char */
+    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}"
+    title="Must contain at least 8 characters, including UPPERCASE, lowercase, number, and special character."
+    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+    placeholder="••••••••"
+    onChange={(e) => setForm({ ...form, password: e.target.value })}
+  />
+  <p className="text-[14px] text-gray-400 mt-1">
+    Min. 8 characters with A, a, 1, and @
+  </p>
+</div>
 
               <button 
                 type="submit"
