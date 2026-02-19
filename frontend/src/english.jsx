@@ -22,7 +22,6 @@ export default function Signup() {
     try {
       await signup(form);
       alert("Signup successful");
-      // Redirect to Login page after successful signup
       navigate("/Login"); 
     } catch (err) {
       alert(err.message);
@@ -30,7 +29,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans overflow-x-hidden">
       {/* 1. TOP ORANGE HELPLINE STRIP */}
       <header className="bg-[#ff8c00] text-white py-1 px-4 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs font-bold gap-1 md:gap-0">
         <div className="flex flex-wrap justify-center gap-2 md:gap-4">
@@ -46,13 +45,17 @@ export default function Signup() {
             मराठी
           </button>
           <button 
-            onClick={() => navigate("/admindashboard")}  className="bg-white text-[#ff8c00] px-3 py-0.5 rounded shadow-sm cursor-pointer">Admin</button>
+            onClick={() => navigate("/admindashboard")}  
+            className="bg-white text-[#ff8c00] px-3 py-0.5 rounded shadow-sm cursor-pointer"
+          >
+            Admin
+          </button>
         </div>
       </header>
 
       {/* 2. MAIN LOGO SECTION */}
       <div className="bg-white py-3 md:py-4 px-4 md:px-6 flex flex-col md:flex-row justify-between items-center border-b shadow-sm gap-4">
-        <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex items-center gap-3 md:gap-4 animate-fadeIn">
           <img 
             src={busLogo} 
             alt="MSRTC Logo" 
@@ -68,7 +71,7 @@ export default function Signup() {
           </div>
         </div>
         
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 animate-fadeIn">
            <img 
             src={eng} 
             alt="Maharashtra Government" 
@@ -81,10 +84,10 @@ export default function Signup() {
       <nav className="bg-[#004a7c] text-white shadow-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto flex overflow-x-auto whitespace-nowrap scrollbar-hide">
           <ul className="flex text-[10px] md:text-xs font-bold uppercase tracking-wide">
-            <button onClick={() => navigate("/english")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">Main Page</button>
-            <button onClick={() => navigate("/AboutUs")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">About us</button>
-            <button onClick={() => navigate("/Preview")} className="px-4 md:px-6 py-3 border-r border-[#003a63] hover:bg-[#003a63] cursor-pointer">Previews</button>
-            <button onClick={() => navigate("/ContactUs")} className="px-4 md:px-6 py-3 hover:bg-[#003a63] cursor-pointer">Contact us</button>
+            <button onClick={() => navigate("/english")} className="px-4 md:px-6 py-3 border-r border-[#003a63] cursor-pointer transition-all duration-300 ease-in-out origin-center hover:bg-orange-400 hover:scale-110">Main Page</button>
+            <button onClick={() => navigate("/AboutUs")} className="px-4 md:px-6 py-3 border-r border-[#003a63] cursor-pointer transition-all duration-300 ease-in-out origin-center hover:bg-orange-400 hover:scale-110">About us</button>
+            <button onClick={() => navigate("/Preview")} className="px-4 md:px-6 py-3 border-r border-[#003a63] cursor-pointer transition-all duration-300 ease-in-out origin-center hover:bg-orange-400 hover:scale-110">Previews</button>
+            <button onClick={() => navigate("/ContactUs")} className="px-4 md:px-6 py-3 cursor-pointer transition-all duration-300 ease-in-out origin-center hover:bg-orange-400 hover:scale-110">Contact us</button>
           </ul>
         </div>
       </nav>
@@ -93,7 +96,7 @@ export default function Signup() {
       <main className="max-w-6xl mx-auto p-4 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-2 md:mt-4">
         
         {/* Signup Form Card */}
-        <div className="md:col-span-1 order-1 md:order-1">
+        <div className="md:col-span-1 order-1 md:order-1 animate-slideInLeft">
           <div className="bg-white shadow-xl border border-gray-200 rounded-lg overflow-hidden">
             <div className="bg-[#8b0000] p-4 flex items-center gap-3">
               <div className="bg-white rounded-lg p-1.5">
@@ -106,51 +109,46 @@ export default function Signup() {
 
             <form onSubmit={handleSubmit} className="p-5 md:p-6 space-y-4 md:space-y-5">
               <div>
-  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Full Name</label>
-  <input
-    required
-    type="text"
-    /* Forces at least two words (First Last) and only letters */
-    pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
-    title="Please enter your full name (First and Last name)"
-    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
-    placeholder="example:- vinod patil"
-    onChange={(e) => setForm({ ...form, name: e.target.value })}
-  />
-</div>
+                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Full Name</label>
+                <input
+                  required
+                  type="text"
+                  pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
+                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+                  placeholder="example:- vinod patil"
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+              </div>
 
-<div>
-  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Email Address</label>
-  <input
-    required
-    type="email"
-    /* Browser naturally checks for @ and domain with type="email" */
-    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
-    placeholder="example@gmail.com"
-    onChange={(e) => setForm({ ...form, email: e.target.value })}
-  />
-</div>
+              <div>
+                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Email Address</label>
+                <input
+                  required
+                  type="email"
+                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+                  placeholder="example@gmail.com"
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
 
-<div>
-  <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Password</label>
-  <input
-    required
-    type="password"
-    /* Logic: Min 8 chars, 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Char */
-    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}"
-    title="Must contain at least 8 characters, including UPPERCASE, lowercase, number, and special character."
-    className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
-    placeholder="••••••••"
-    onChange={(e) => setForm({ ...form, password: e.target.value })}
-  />
-  <p className="text-[14px] text-gray-400 mt-1">
-    Min. 8 characters with A, a, 1, and @
-  </p>
-</div>
+              <div>
+                <label className="text-[10px] font-black text-gray-500 block mb-1 uppercase tracking-widest">Password</label>
+                <input
+                  required
+                  type="password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}"
+                  className="w-full border border-gray-300 p-2.5 rounded text-sm focus:border-[#ff8c00] outline-none invalid:border-red-500"
+                  placeholder="••••••••"
+                  onChange={(e) => setForm({ ...form, password: e.target.value })}
+                />
+                <p className="text-[10px] text-gray-400 mt-1">
+                  Min. 8 characters with A, a, 1, and @
+                </p>
+              </div>
 
               <button 
                 type="submit"
-                className="w-full bg-[#8b0000] hover:bg-[#6b0000] text-white font-bold py-3 rounded shadow-lg active:scale-95 uppercase text-xs md:text-sm"
+                className="w-full bg-[#8b0000] hover:bg-[#6b0000] text-white font-bold py-3 rounded shadow-lg active:scale-95 uppercase text-xs md:text-sm transition-all"
               >
                 Submit
               </button>
@@ -164,26 +162,33 @@ export default function Signup() {
         {/* Informational Column */}
         <div className="md:col-span-2 space-y-6 order-2 md:order-2">
           <div className="bg-white p-6 md:p-8 border border-gray-200 rounded-lg shadow-sm">
-            <h2 className="text-xl md:text-3xl font-extrabold text-[#8b0000] mb-3 border-b-2 border-[#ff8c00] pb-2">
+            <h2 className="text-xl md:text-3xl font-extrabold text-[#8b0000] mb-3 border-b-2 border-[#ff8c00] pb-2 animate-fadeInUp">
               For the common people… where there is a road, there is an S.T.
             </h2>
             
-            <p className="text-gray-700 leading-relaxed text-sm md:text-lg mb-4">
+            <p className="text-gray-700 leading-relaxed text-sm md:text-lg mb-4 animate-fadeInUp">
               "Registered users get the facility to receive instant information about bus bookings and new announcements from the Corporation."
             </p>
             
-            <div className="bg-orange-50 p-4 border-l-4 md:border-l-8 border-[#ff8c00] rounded-r-lg">
+            <div className="bg-orange-50 p-4 border-l-4 md:border-l-8 border-[#ff8c00] rounded-r-lg animate-fadeInUp">
               <p className="text-xs md:text-sm text-gray-700 font-medium italic">
                 "Providing safe and efficient transport service is our mission."
               </p>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-gray-100 rounded overflow-hidden border border-gray-200 shadow-sm">
-                <img src={AC} alt="AC Bus" className="w-full h-32 md:h-40 object-cover" />
-              </div>
-              <div className="bg-gray-100 rounded overflow-hidden border border-gray-200 shadow-sm">
-                <img src={EV} alt="EV Bus" className="w-full h-32 md:h-40 object-cover" />
+            {/* BUS PHOTOS LOOPING */}
+            <div className="mt-8 overflow-hidden relative w-full">
+              <div className="flex animate-marquee whitespace-nowrap gap-4 py-2">
+                {[AC, EV, AC, EV].map((img, index) => (
+                  <div key={index} className="shrink-0 w-64 md:w-80 h-36 md:h-48 rounded overflow-hidden border border-gray-200 shadow-md">
+                    <img src={img} alt="Bus" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                  </div>
+                ))}
+                {[AC, EV, AC, EV].map((img, index) => (
+                  <div key={`loop-${index}`} className="shrink-0 w-64 md:w-80 h-36 md:h-48 rounded overflow-hidden border border-gray-200 shadow-md">
+                    <img src={img} alt="Bus" className="w-full h-full object-cover" />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -193,13 +198,46 @@ export default function Signup() {
       {/* FOOTER */}
       <footer className="mt-16 bg-[#1a1a1a] text-white border-t-4 border-[#ff8c00]">
         <div className="max-w-6xl mx-auto p-4 text-center">
-          <p className="text-sm font-medium">© 2025 Maharashtra State Road Transport Corporation. All rights reserved.</p>
+          <p className="text-sm font-medium">© 2026 Maharashtra State Road Transport Corporation. All rights reserved.</p>
           <div className="flex justify-center gap-6 mt-4 opacity-60 text-[10px] uppercase tracking-widest">
             <p className="hover:text-[#ff8c00] cursor-pointer">Maharashtra State Road Transport Corporation</p>
             <p className="hover:text-[#ff8c00] cursor-pointer">Red Queen</p>
           </div>
         </div>
       </footer>
+
+      {/* STYLES FOR ANIMATIONS */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+          width: fit-content;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 1s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes slideInLeft {
+          from { opacity: 0; transform: translateX(-40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slideInLeft {
+          animation: slideInLeft 0.8s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

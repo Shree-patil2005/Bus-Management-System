@@ -104,39 +104,79 @@ export default function Dashboard() {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <input className={inputStyle} placeholder="Passenger Name"
-                    value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-                  <input className={inputStyle} placeholder="Mobile Number"
-                    value={form.mobile} onChange={e => setForm({ ...form, mobile: e.target.value })} required />
-                </div>
+  <input 
+    className={`${inputStyle} invalid:border-red-500`} 
+    placeholder="Passenger Name"
+    value={form.name} 
+    /* Ensures at least a First and Last name */
+    pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
+    title="Please enter full name (First and Last name)"
+    onChange={e => setForm({ ...form, name: e.target.value })} 
+    required 
+  />
 
-                <input className={inputStyle} placeholder="Email Address" type="email"
-                  value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+  <input 
+    type="tel"
+    className={`${inputStyle} invalid:border-red-500`} 
+    placeholder="Mobile Number (10 digits)"
+    value={form.mobile} 
+    /* Pattern: Exactly 10 digits, only numbers 0-9 */
+    pattern="[0-9]{10}"
+    maxLength="10"
+    title="Please enter a valid 10-digit mobile number"
+    onChange={e => {
+      // Small logic to prevent typing more than 10 digits or non-numbers
+      const val = e.target.value.replace(/\D/g, "");
+      if (val.length <= 10) setForm({ ...form, mobile: val });
+    }} 
+    required 
+  />
+</div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <input className={inputStyle} placeholder="From (Source)"
-                    value={form.source} onChange={e => setForm({ ...form, source: e.target.value })} required />
-                  <input className={inputStyle} placeholder="To (Destination)"
-                    value={form.destination} onChange={e => setForm({ ...form, destination: e.target.value })} required />
-                </div>
+<input 
+  className={`${inputStyle} invalid:border-red-500`} 
+  placeholder="Email Address" 
+  type="email"
+  /* Strict email pattern to ensure it has @ and a proper domain */
+  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+  title="Please enter a valid email address (e.g., name@mail.com)"
+  value={form.email} 
+  onChange={e => setForm({ ...form, email: e.target.value })} 
+  required 
+/>
 
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="col-span-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Date</label>
-                    <input type="date" className={inputStyle}
-                      value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} required />
-                  </div>
-                  <div className="col-span-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Time</label>
-                    <input type="time" className={inputStyle}
-                      value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} required />
-                  </div>
-                  <div className="col-span-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Seats</label>
-                    <input type="number" className={inputStyle} placeholder="0"
-                      value={form.people} onChange={e => setForm({ ...form, people: e.target.value })} required />
-                  </div>
-                </div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+  <input className={inputStyle} placeholder="From (Source)"
+    value={form.source} onChange={e => setForm({ ...form, source: e.target.value })} required />
+  <input className={inputStyle} placeholder="To (Destination)"
+    value={form.destination} onChange={e => setForm({ ...form, destination: e.target.value })} required />
+</div>
+
+<div className="grid grid-cols-3 gap-4">
+  <div className="col-span-1">
+    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Date</label>
+    <input type="date" className={inputStyle}
+      value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} required />
+  </div>
+  <div className="col-span-1">
+    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Time</label>
+    <input type="time" className={inputStyle}
+      value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} required />
+  </div>
+  <div className="col-span-1">
+    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Seats</label>
+    <input 
+      type="number" 
+      min="1" 
+      max="50" 
+      className={inputStyle} 
+      placeholder="0"
+      value={form.people} 
+      onChange={e => setForm({ ...form, people: e.target.value })} 
+      required 
+    />
+  </div>
+</div>
 
                 <button
                   type="submit"

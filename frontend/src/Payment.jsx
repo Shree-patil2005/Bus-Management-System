@@ -98,38 +98,55 @@ export default function Payment() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
-                  className={inputStyle}
-                  placeholder="Full Name"
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                />
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Full Name"
+  required
+  value={form.name}
+  /* Optional: Ensures at least two words */
+  pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
+  title="Please enter your full name (First and Last name)"
+  onChange={(e) => setForm({ ...form, name: e.target.value })}
+/>
                 <input
-                  className={inputStyle}
-                  placeholder="Phone"
-                  required
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                />
+  type="tel"
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Phone (10 Digits)"
+  required
+  /* Forces exactly 10 digits */
+  pattern="[0-9]{10}"
+  maxLength="10"
+  title="Please enter a 10-digit mobile number"
+  value={form.phone}
+  onChange={(e) => {
+    // Only allows numbers to be typed
+    const value = e.target.value.replace(/\D/g, "");
+    setForm({ ...form, phone: value });
+  }}
+/>
               </div>
 
               <input
-                className={inputStyle}
-                placeholder="Email Address"
-                required
-                type="email"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-              />
+  type="email"
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Email Address"
+  required
+  /* Strict email pattern requirement */
+  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+  title="Please enter a valid email address"
+  value={form.email}
+  onChange={(e) => setForm({ ...form, email: e.target.value })}
+/>
 
               <input
-                type="number"
-                className={inputStyle}
-                placeholder="Amount (Rs.)"
-                required
-                value={form.amount}
-                onChange={(e) => setForm({ ...form, amount: e.target.value })}
-              />
+  type="number"
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Amount (Rs.)"
+  required
+  /* Prevents negative amounts */
+  min="1"
+  value={form.amount}
+  onChange={(e) => setForm({ ...form, amount: e.target.value })}
+/>
 
               <button
                 type="submit"

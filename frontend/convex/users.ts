@@ -74,7 +74,9 @@ export const login = action({
 
 /* --------- QUERY --------- */
 export const getByEmail = query({
-  args: { email: v.string() },
+  args: {
+    email: v.string(),
+  },
   handler: async (ctx, args) => {
     return ctx.db
       .query("users")

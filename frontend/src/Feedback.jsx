@@ -55,50 +55,65 @@ export default function Feedback() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Full Name</label>
-                  <input
-                    className={inputStyle}
-                    placeholder="Enter Your Name"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    required
-                  />
-                </div>
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Phone Number</label>
-                  <input
-                    className={inputStyle}
-                    placeholder="Mobile Number"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    required
-                  />
-                </div>
-              </div>
+  <div className="space-y-1">
+    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Full Name</label>
+    <input
+      className={`${inputStyle} invalid:border-red-500`}
+      placeholder="Enter Your Name"
+      value={form.name}
+      /* Pattern: Requires at least two words with a space */
+      pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
+      title="Please enter your full name (First and Last name)"
+      onChange={(e) => setForm({ ...form, name: e.target.value })}
+      required
+    />
+  </div>
+  <div className="space-y-1">
+    <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Phone Number</label>
+    <input
+      type="tel"
+      className={`${inputStyle} invalid:border-red-500`}
+      placeholder="10-Digit Mobile Number"
+      value={form.phone}
+      /* Pattern: Exactly 10 digits */
+      pattern="[0-9]{10}"
+      maxLength="10"
+      title="Please enter a valid 10-digit mobile number"
+      onChange={(e) => {
+        // Prevents anything except digits from being saved to state
+        const val = e.target.value.replace(/\D/g, "");
+        setForm({ ...form, phone: val });
+      }}
+      required
+    />
+  </div>
+</div>
 
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Email Address</label>
-                <input
-                  className={inputStyle}
-                  type="email"
-                  placeholder="name@example.com"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  required
-                />
-              </div>
+<div className="space-y-1">
+  <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Email Address</label>
+  <input
+    className={`${inputStyle} invalid:border-red-500`}
+    type="email"
+    placeholder="name@example.com"
+    /* Pattern: Strict email validation for name@domain.com format */
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+    title="Please enter a valid email address"
+    value={form.email}
+    onChange={(e) => setForm({ ...form, email: e.target.value })}
+    required
+  />
+</div>
 
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">City / Address</label>
-                <input
-                  className={inputStyle}
-                  placeholder="Enter your location"
-                  value={form.address}
-                  onChange={(e) => setForm({ ...form, address: e.target.value })}
-                  required
-                />
-              </div>
+<div className="space-y-1">
+  <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">City / Address</label>
+  <input
+    className={inputStyle}
+    placeholder="Enter your location"
+    value={form.address}
+    onChange={(e) => setForm({ ...form, address: e.target.value })}
+    required
+  />
+</div>
 
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-gray-400 uppercase ml-1">Message</label>

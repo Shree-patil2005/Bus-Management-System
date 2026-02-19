@@ -65,46 +65,61 @@ export default function ContactUs() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <input
-                  className={inputStyle}
-                  placeholder="Full Name"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  required
-                />
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Full Name"
+  value={form.name}
+  /* Pattern: At least two words (First and Last name) */
+  pattern="^[a-zA-Z]+\s+[a-zA-Z]+.*$"
+  title="Please enter your full name (First and Last name)"
+  onChange={(e) => setForm({ ...form, name: e.target.value })}
+  required
+/>
                 <input
-                  className={inputStyle}
-                  placeholder="Phone Number"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  required
-                />
+  type="tel"
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Phone Number (10 digits)"
+  value={form.phone}
+  /* Pattern: Exactly 10 numeric digits */
+  pattern="[0-9]{10}"
+  maxLength="10"
+  title="Please enter a 10-digit phone number"
+  onChange={(e) => {
+    // Strips non-numeric characters automatically
+    const val = e.target.value.replace(/\D/g, "");
+    setForm({ ...form, phone: val });
+  }}
+  required
+/>
               </div>
 
               <input
-                className={inputStyle}
-                placeholder="Email Address"
-                type="email"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                required
-              />
+  type="email"
+  className={`${inputStyle} invalid:border-red-500`}
+  placeholder="Email Address"
+  /* Pattern: Strict email validation */
+  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+  title="Please enter a valid email address (e.g. name@mail.com)"
+  value={form.email}
+  onChange={(e) => setForm({ ...form, email: e.target.value })}
+  required
+/>
 
               <input
-                className={inputStyle}
-                placeholder="Residential Address"
-                value={form.address}
-                onChange={(e) => setForm({ ...form, address: e.target.value })}
-                required
-              />
+  className={inputStyle}
+  placeholder="Residential Address"
+  value={form.address}
+  onChange={(e) => setForm({ ...form, address: e.target.value })}
+  required
+/>
 
               <textarea
-                className={`${inputStyle} resize-none`}
-                placeholder="Describe the issue you are facing..."
-                rows="4"
-                value={form.issue}
-                onChange={(e) => setForm({ ...form, issue: e.target.value })}
-                required
-              />
+  className={`${inputStyle} resize-none`}
+  placeholder="Describe the issue you are facing..."
+  rows="4"
+  value={form.issue}
+  onChange={(e) => setForm({ ...form, issue: e.target.value })}
+  required
+/>
 
               <button
                 type="submit"
